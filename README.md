@@ -33,26 +33,26 @@
 
 ## Important files and folders
 
-#### requirements.txt
+#### [requirements.txt](https://github.com/jrobchin/your-first-website/blob/master/run-server)
 Contains the Python packages needed to run this server.
 
-#### run-server
+#### [run-server](https://github.com/jrobchin/your-first-website/blob/master/run-server)
 Sets variables needed to run the server and runs the server itself.
 
 - **FLASK_ENV** - usually _production_ or _development_ to describe what mode to run the server in
 - **FLASK_APP** - the file that holds the flask app
 - **flask run** - runs flask
 
-#### server.py
+#### [server.py](https://github.com/jrobchin/your-first-website/blob/master/server.py)
 Holds the server code. Contains the logic for routing the server to certain functions.
 
-#### dropbox/
+#### [dropbox/](https://github.com/jrobchin/your-first-website/blob/master/dropbox)
 Contains files for our _dropbox_.
 
-#### static/
+#### [static/](https://github.com/jrobchin/your-first-website/blob/master/static)
 Generally contains files for styling, JavaScript, or images that will not change.
 
-#### templates/
+#### [templates/](https://github.com/jrobchin/your-first-website/blob/master/templates)
 Contains html that can change dynamically.
 
 Ex. In our case, if you add files to the _dropbox_ folder, you will see more links listed under dropbox files on the homepage.
