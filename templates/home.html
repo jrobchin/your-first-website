@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Western Founders Network</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <h1>Western Founders Network</h1>
+    <hr>
+    <h3>Welcome to our website.</h3>
+    <img src="/dropbox/important_picture.jpg" alt="">
+    <h4>My dropbox files:</h4>
+    <ul>
+    {% for link in links %}
+      <li>
+        <a href="{{ link }}">{{ link }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
