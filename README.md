@@ -8,17 +8,24 @@
     ```
     $ virtualenv venv --python=python3
     ```
-3. Install the required packages.
+3. Activate the environment.
+    ```
+    $ source venv/bin/activate
+    ```
+
+4. Install the required packages.
 
     ```
     $ pip install -r requirements.txt
     ```
-4. Give the run-script permissions to run.
+
+3. Give the run-script permissions to run.
 
     ```
     $ chmod a+x run-server
     ```
-5. Run the server.
+
+6. Run the server.
 
     ```
     $ ./run-server
