@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Drake's Top Hits</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+    <link href="/static/vendor/fontawesome-free-web/css/all.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/resume.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid p-0">
+      
+      <section class="p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">
+            My Top Billboard <span class="text-primary">Hits</span>
+          </h1>
+          <div class="subheading mb-5">
+          From the Billboard <a href="https://www.billboard.com/charts/r-b-hip-hop-songs">HOT R&B/HIP-HOP SONGS</a>
+          <br>
+          Click <a href="/">here</a> to go back to my resume.
+          </div>
+
+          <div class="list-group">
+
+            {% for song in songs %}
+              <div href="#" class="list-group-item flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ song.title }}</h5>
+                  <small>{{ song.weeks }} weeks</small>
+                </div>
+                <p class="mb-1">{{ song.artist }}</p>
+              </div>
+            {% endfor %}
+      
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/static/vendor/jquery-easing/jquery.easing.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/static/js/resume.js"></script>
+
+  </body>
+
+</html>
