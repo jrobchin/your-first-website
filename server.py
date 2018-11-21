@@ -15,6 +15,7 @@ import billboard
 
 # Keep track of how many visits we've had since the site has been running
 visits = 0
+comment_list = []
 
 # Create an object that controls the server
 app = Flask(__name__)
@@ -31,6 +32,25 @@ def dropbox(fpath):
     return send_file(path_to_file)
 
 """
+This is our comments endpoint.
+
+If we get a "GET" request, we return the comments template with the comment list.
+
+If we get a "POST" request, we add the comment to the comments list 
+and then return the comments template with the comment list.
+"""
+@app.route("/comments", methods=('GET', 'POST'))
+def comments():
+    global comment_list
+    if request.method == 'POST':
+        comment = {}
+        comment['name'] = request.form['name']
+        comment['body'] = request.form['body']
+        comment['date'] = request.form['date']
+        comment_list.append(comment)
+    return render_template("comments.html", comments=comment_list)
+
+"""
 When there is nothing after the website domain, this function is called
 and returns the string 'Hello World!'.
 """
@@ -39,28 +59,6 @@ def home():
     global visits
     visits = visits + 1
     return render_template("index.html", visits=visits)
-
-"""
-Here we get data from the billboard top rnb and hip-hop songs and
-look for all songs that have Drake as an artist.
-"""
-@app.route("/billboard-hits")
-def billboard_hits():
-    n_songs = int(request.args.get('songs', 100)) # Look at the query parameters for how many songs to return
-
-    songs = [] # The list of songs we'll be using in the template
-
-    chart = billboard.ChartData('r-b-hip-hop-songs') # Get chart data
-    counter = 0
-    for song in chart:
-        if counter >= n_songs: # Check if we have enough songs yet
-            break # If we do, break out of the loop
-        elif 'Drake' in song.artist: 
-            # If the word 'Drake' can be found in the artist string, add the song to the song list
-            songs.append(song)
-            counter = counter + 1 # Add one to the counter for each song added
-
-    return render_template("billboard.html", songs=songs)
 
 """
 If the client requests anything after the first slash and does not match

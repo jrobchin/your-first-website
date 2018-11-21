@@ -30,30 +30,47 @@
       <section class="p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
           <h1 class="mb-0">
-            My Top Billboard <span class="text-primary">Hits</span>
+            Your <span class="text-primary">Thoughts</span>
           </h1>
           <div class="subheading mb-5">
-          From the Billboard <a href="https://www.billboard.com/charts/r-b-hip-hop-songs">HOT R&B/HIP-HOP SONGS</a>
-          <br>
           Click <a href="/">here</a> to go back to my resume.
           </div>
 
           <div class="list-group">
 
-            {% for song in songs %}
-              <div href="#" class="list-group-item flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">{{ song.title }}</h5>
-                  <small>{{ song.weeks }} weeks</small>
+            {% for comment in comments %}
+                <div href="#" class="list-group-item flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ comment['name'] }}</h5>
+                    <small>{{ comment['date'] }}</small>
+                  </div>
+                  <p class="mb-1">
+                    {{ comment['body'] }}
+                  </p>
                 </div>
-                <p class="mb-1">{{ song.artist }}</p>
-              </div>
             {% endfor %}
-      
+                
           </div>
 
+          <div class="mt-5">
+            <h3>Leave a comment:</h3>
+            <form action="/comments" method="POST">
+              <label for="name">Your Name:</label><br>
+              <input type="text" name="name">
+              <br>
+              <label for="body">Comment:</label><br>
+              <textarea name="body" cols="80" rows="5"></textarea>
+              <br>
+              <label for="date">Today's Date:</label><br>
+              <input type="text" name="date">
+              <br><br>
+              <input type="submit">
+            </form>
+          </div>
         </div>
+        
       </section>
+
 
     </div>
 
