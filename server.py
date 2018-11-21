@@ -11,7 +11,6 @@ operating system easier.
 
 import os
 from flask import Flask, send_file, render_template, Response, jsonify, request
-import billboard
 
 # Keep track of how many visits we've had since the site has been running
 visits = 0
@@ -51,16 +50,6 @@ def comments():
     return render_template("comments.html", comments=comment_list)
 
 """
-When there is nothing after the website domain, this function is called
-and returns the string 'Hello World!'.
-"""
-@app.route("/")
-def home():
-    global visits
-    visits = visits + 1
-    return render_template("index.html", visits=visits)
-
-"""
 If the client requests anything after the first slash and does not match
 with another route, then this function is called.
 """
@@ -69,3 +58,13 @@ def another_route(fpath):
     # Put together a string that says 'You wanted this path: [insert the path requested here]'
     response = "You wanted this path: " + fpath
     return response # Send the response string back to the client
+
+"""
+When there is nothing after the website domain, this function is called
+and returns the string 'Hello World!'.
+"""
+@app.route("/")
+def home():
+    global visits
+    visits = visits + 1
+    return render_template("index.html", visits=visits)

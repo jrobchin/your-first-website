@@ -1,0 +1,39 @@
+Make an account on pythonanywhere.com
+
+Open the "Web" tab
+Click "Add a new web app" on the left
+Click "Next" in the bottom right
+Click "Manual configuration"
+Click "Python 3.7"
+Click "Next" in bottom right
+
+Open the "Dashboard" tab
+Under "Consoles" in the bottom left, right click "$ Bash" and click "Open link in a new tab"
+Copy-Paste or type:
+	git clone https://github.com/jrobchin/your-first-website.git mysite
+
+Open the "Web" tab
+Scroll down to the "Code:" section
+Set "Source code:" to:
+	/home/<username>/mysite
+Click the link beside "WSGI configuration file"
+Replace what you see with:
+	import sys
+
+	path = '/home/westernfoundersnetwork/mysite'
+	if path not in sys.path:
+	    sys.path.append(path)
+
+	from server import app as application
+
+Open the bash console again
+Copy-Paste or type:
+	mkvirtualenv webenv --python=python3.7
+Once it's done you should see "(webdev)" at the beginning of your console line
+Type:
+	pip install flask
+
+Open the "Web" tab again
+Set "Virtualenv:" to:
+    /home/<username>/.virtualenvs/webenv/
+Go to the top of the page and reload the server
